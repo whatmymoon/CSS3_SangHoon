@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!-- 
+* 후손선택자 : 특정한 태그 아래에 있는 후손을 선택할 때 사용하는 선택자.
+* id 의 사용을 남용하지 않고 상대적 위치로 Selector 를 사용합니다.
+-->
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>07_Descendant01.html</title>
+<style type = "text/css">
+	#header h1{ color:blue;}
+	/* 빈칸(공백)으로 선택자가 이어지면 아래의 포함되어 있는 child 선택자들 모두 지목하게 됩니다. */
+	#section h1{ color : red; }
+	
+	#header h1, #section h1{ background : yellow; }
+	/* ',' 로 구분하면 두 개의 후손선택자를 동시 선택 가능합니다. */
+	/* #header h1,h3 -> id가 header인 태그 안의 h1과 h3을 선택? X */
+	#header h1, #header h3{ color:orange; }
+	/* 이렇게 작성해야 header 밖의 h3은 선택에서 제외되고 header 안의 h1 과 h3 이 선택됩니다. */
+	
+</style>
+</head>
+<body>
+	<div id = "header">
+		<h1 class = "title">회사 이름/로고</h1>
+		<div id = "nav">
+			<h1>Navigation</h1><h2>header 2</h2><h3>CSS3</h3>
+		</div>
+	</div>
+	<h3>header 에 포함되지 않은 h3 - CSS3</h3>
+	<div id = "section">
+		<h1 class = "title">Aside</h1>
+		<p><h1 class = "title">Aside</h1>군사법원의 조직, 권환 및 재판관의 자격은
+		 법률로 정한다. 국회의원은 국가이익을 우선하여 양심에 따라 직무를 행한다. 국토와
+		 자원은 국가의 보호를 받으며, 국가는 그 균형있는 개발과 이용을 위하여 필요한
+		 계획을 수립한다.</p>
+		 <h1 class = "title">Aside</h1>
+	</div>
+
+</body>
+</html>
